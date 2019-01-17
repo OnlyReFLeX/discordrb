@@ -81,13 +81,13 @@ module Discordrb::Commands
     # @return [String] the result of the execution.
     def call(event, arguments, chained = false, check_permissions = true)
       if arguments.length < @attributes[:min_args]
-        event.respond "Too few arguments for command `#{name}`!"
-        event.respond "Usage: `#{@attributes[:usage]}`" if @attributes[:usage]
+        event.respond "Слишком мало данных передано для `#{name}`!"
+        event.respond "Используй: `#{@attributes[:usage]}`" if @attributes[:usage]
         return
       end
       if @attributes[:max_args] >= 0 && arguments.length > @attributes[:max_args]
-        event.respond "Too many arguments for command `#{name}`!"
-        event.respond "Usage: `#{@attributes[:usage]}`" if @attributes[:usage]
+        event.respond "Слишком много данных передано для `#{name}`!"
+        event.respond "Используй: `#{@attributes[:usage]}`" if @attributes[:usage]
         return
       end
       unless @attributes[:chain_usable]
